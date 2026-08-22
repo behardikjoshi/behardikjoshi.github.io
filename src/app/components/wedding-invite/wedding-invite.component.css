@@ -1,0 +1,279 @@
+/* Import existing wedding styles */
+.wedding-container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #ffecd2 0%, #fcb69f 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Decorations */
+.top-right-decoration,
+.top-left-decoration {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  opacity: 0.1;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.top-right-decoration {
+  top: 10px;
+  right: 10px;
+}
+
+.top-left-decoration {
+  top: 10px;
+  left: 10px;
+}
+
+/* Sakura Animation */
+.sakura-falling {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Wrap & Title */
+.wrap {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-family: 'Dancing Script', cursive;
+}
+
+.title h1 {
+  font-size: 4rem;
+  color: #d4af37;
+  margin: 20px 0;
+  font-weight: normal;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title h2 {
+  font-size: 2.5rem;
+  color: #d4af37;
+  margin: 10px 0;
+  font-weight: normal;
+}
+
+.title h3 {
+  font-size: 1.8rem;
+  color: #8b4513;
+  margin: 20px 0 10px 0;
+  font-weight: normal;
+}
+
+.title p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.8;
+  margin: 10px 0;
+}
+
+.date,
+.place {
+  font-weight: bold;
+  color: #c41e3a;
+}
+
+/* Countdown */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 50px auto;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  max-width: 600px;
+  position: relative;
+  z-index: 2;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #c41e3a;
+  display: block;
+}
+
+.countdown-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Dance Med */
+.dance-med {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #8b4513;
+  margin: 30px 0;
+  font-style: italic;
+  position: relative;
+  z-index: 2;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 40px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.actions a {
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.actions a:hover {
+  transform: scale(1.05);
+}
+
+.venue {
+  background: linear-gradient(135deg, #c41e3a, #8b0000);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.venue:hover {
+  background: linear-gradient(135deg, #8b0000, #5c0000);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 1rem;
+  color: #555;
+  margin: 40px 0;
+  line-height: 1.8;
+  position: relative;
+  z-index: 2;
+}
+
+/* Music */
+.music {
+  display: none;
+}
+
+/* Happiness Section */
+.happiness-section {
+  margin-top: 60px;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+}
+
+.happiness {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.8;
+  position: relative;
+  z-index: 2;
+}
+
+.happiness iframe {
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title h1 {
+    font-size: 2.5rem;
+  }
+
+  .title h2 {
+    font-size: 1.8rem;
+  }
+
+  .title h3 {
+    font-size: 1.3rem;
+  }
+
+  .countdown {
+    gap: 20px;
+  }
+
+  .countdown-value {
+    font-size: 1.8rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .venue {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .happiness iframe {
+    width: 100% !important;
+    max-width: 400px;
+    height: auto;
+  }
+
+  .top-right-decoration,
+  .top-left-decoration {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrap {
+    margin: 40px auto;
+  }
+
+  .title h1 {
+    font-size: 2rem;
+  }
+
+  .title p {
+    font-size: 1rem;
+  }
+
+  .countdown {
+    padding: 20px 10px;
+    gap: 15px;
+  }
+
+  .countdown-value {
+    font-size: 1.5rem;
+  }
+}
