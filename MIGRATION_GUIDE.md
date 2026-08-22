@@ -1,25 +1,27 @@
-# Angular Portfolio - Setup Branch
+# Angular 22 Portfolio - Migration Guide
 
-This branch contains the complete Angular migration setup for transforming the repository from a pure HTML/CSS wedding invite website to a modern Angular-based portfolio.
+This branch contains the complete Angular 22 migration setup for transforming the repository from a pure HTML/CSS wedding invite website to a modern Angular-based portfolio using the **latest Angular 22** framework.
 
 ## Changes Summary
 
 ### ✅ Completed
 
-1. **Angular Project Initialization**
-   - Angular 17 latest setup
-   - TypeScript configuration
+1. **Angular 22 Project Initialization**
+   - Angular 22 latest setup
+   - TypeScript 5.5 configuration
    - Build and development scripts configured
+   - Optimized for latest Node.js (v20+)
 
 2. **Component Structure**
    - `PortfolioComponent`: Modern portfolio homepage at root `/`
    - `WeddingInviteComponent`: Original wedding invite at `/wedding-invite`
-   - Standalone components (Angular 17 best practice)
+   - Standalone components (Angular 22 best practice)
+   - Signal-ready for future enhancements
 
 3. **Configuration Files**
    - `angular.json`: Build configuration for GitHub Pages
-   - `tsconfig.json`: TypeScript strict mode enabled
-   - `package.json`: All dependencies and scripts
+   - `tsconfig.json`: TypeScript 5.5 strict mode enabled
+   - `package.json`: Angular 22 dependencies
    - `karma.conf.js`: Testing configuration
 
 4. **Styling**
@@ -32,6 +34,15 @@ This branch contains the complete Angular migration setup for transforming the r
    - Root route (`/`): Portfolio component
    - Wedding route (`/wedding-invite`): Wedding invite component
    - Wildcard redirect to home
+
+## Angular 22 Advantages
+
+- **Latest Features**: Access to newest Angular improvements
+- **Better Performance**: Enhanced build optimizations
+- **TypeScript 5.5**: Latest TypeScript features and improvements
+- **Bundler Configuration**: More flexible module resolution
+- **Future Ready**: Signal-based reactivity support
+- **Long Term Support**: Better stability and security updates
 
 ## Next Steps
 
@@ -127,11 +138,18 @@ behardikjoshi.github.io/
 
 ## Technologies Used
 
-- **Angular**: 17.0.0 (Latest)
-- **TypeScript**: 5.2.2
+- **Angular**: 22.0.0 (Latest)
+- **TypeScript**: 5.5.2 (Latest)
 - **RxJS**: 7.8.0
 - **CSS3**: Responsive design with flexbox/grid
 - **GitHub Pages**: Deployment target
+- **Node.js**: v20+ recommended
+
+## System Requirements
+
+- **Node.js**: 20.x or higher
+- **npm**: 10.x or higher
+- **Angular CLI**: 22.x
 
 ## Customization
 

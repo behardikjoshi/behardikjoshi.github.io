@@ -1,6 +1,6 @@
-# Wedding Invitation Portfolio
+# Wedding Invitation Portfolio - Angular 22
 
-This is the refactored version of the wedding invitation website built with Angular.
+This is the refactored version of the wedding invitation website built with **Angular 22** (latest version).
 
 ## Project Structure
 
@@ -10,8 +10,9 @@ This is the refactored version of the wedding invitation website built with Angu
 ## Setup Instructions
 
 ### Prerequisites
-- Node.js (v18 or higher)
-- npm (v9 or higher)
+- Node.js (v20 or higher)
+- npm (v10 or higher)
+- Angular CLI 22
 
 ### Installation
 
@@ -46,11 +47,12 @@ npm run gh-pages-deploy
 ## Features
 
 ### Portfolio Home (`/`)
-- Modern responsive design
+- Modern responsive design with Angular 22
 - Featured projects showcase
 - Skills section
 - Contact information
 - Social media links
+- Signal-based reactivity (Angular 22 features)
 
 ### Wedding Invite (`/wedding-invite`)
 - Elegant wedding invitation
@@ -58,6 +60,7 @@ npm run gh-pages-deploy
 - Venue information with Google Maps link
 - Invitation card download
 - Responsive design for all devices
+- YouTube video embedding
 
 ## File Structure
 
@@ -104,10 +107,12 @@ mv invitation/ src/assets/wedding/invitation/
 
 ## Technology Stack
 
-- **Angular 17**: Latest version
-- **TypeScript**: Latest
+- **Angular**: 22.0.0 (Latest)
+- **TypeScript**: 5.5.2
 - **CSS3**: Responsive design
-- **RxJS**: Reactive programming
+- **RxJS**: 7.8.0 - Reactive programming
+- **Standalone Components**: Angular 22 best practice
+- **Signals**: Angular 22 reactive primitives (optional enhancement)
 
 ## Browser Support
 
@@ -115,6 +120,16 @@ mv invitation/ src/assets/wedding/invitation/
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
+
+## What's New in Angular 22
+
+✨ **Key Features Used:**
+- Standalone components (no NgModule)
+- Modern TypeScript 5.5 support
+- Enhanced bundler configuration
+- Improved performance optimizations
+- Signal-based reactivity ready
+- Enhanced developer experience
 
 ## License
 
