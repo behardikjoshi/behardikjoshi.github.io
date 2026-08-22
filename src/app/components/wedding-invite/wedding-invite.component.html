@@ -1,0 +1,67 @@
+<div class="wedding-container">
+  <div class="sakura-falling"></div>
+  <img src="assets/wedding/img/image-top-right.png" alt="decoration" class="top-right-decoration" onerror="this.style.display='none'">
+  <img src="assets/wedding/img/image-top-left.png" alt="decoration" class="top-left-decoration" onerror="this.style.display='none'">
+
+  <section id="media"></section>
+
+  <div class="wrap">
+    <div class="title">
+      <h1>Hardik</h1>
+      <h2>&</h2>
+      <h1>Priyanka</h1>
+      <h3>Are getting married</h3>
+      <p>
+        on <span class="date">21st April 2024</span>, At <span class="place">Vaishnav Samaj Bhavan</span>, Bhayander West
+      </p>
+    </div>
+  </div>
+
+  <div id="time" class="countdown">
+    <div class="countdown-item" *ngIf="timeLeft.days !== undefined">
+      <span class="countdown-value">{{ timeLeft.days }}</span>
+      <span class="countdown-label">Days</span>
+    </div>
+    <div class="countdown-item" *ngIf="timeLeft.hours !== undefined">
+      <span class="countdown-value">{{ timeLeft.hours }}</span>
+      <span class="countdown-label">Hours</span>
+    </div>
+    <div class="countdown-item" *ngIf="timeLeft.minutes !== undefined">
+      <span class="countdown-value">{{ timeLeft.minutes }}</span>
+      <span class="countdown-label">Minutes</span>
+    </div>
+    <div class="countdown-item" *ngIf="timeLeft.seconds !== undefined">
+      <span class="countdown-value">{{ timeLeft.seconds }}</span>
+      <span class="countdown-label">Seconds</span>
+    </div>
+  </div>
+
+  <p class="dance-med">
+    dinner & dancing to follow
+  </p>
+
+  <div class="actions">
+    <a href="https://maps.app.goo.gl/ysSodSErRcNqW8ZW6" target="_blank" rel="noopener noreferrer">
+      <div class="venue">SEE THE VENUE</div>
+    </a>
+    <a href="assets/wedding/invitation/Hardik%20%26%20Priyanka.pdf" download="Invitation | 21 April | Hope to see you there!">
+      <div class="venue">DOWNLOAD INVITATION CARD</div>
+    </a>
+  </div>
+
+  <p class="footer">
+    Can't wait to celebrate auspicious moment of our family with you! <br>
+    Just a ping away for any queries: +91 9970589755
+    <span></span>
+  </p>
+
+  <div class="music">
+    <audio src="assets/wedding/mp3/song.mp3" id="my_audio" loop></audio>
+  </div>
+
+  <div class="wrap happiness-section">
+    <p class="happiness">Join us in our happiness!<br><br>
+      <iframe width="400" height="315" src="https://www.youtube.com/embed/XUDBS32k-KI?si=RW9-DbZnFEq1Rv2X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </p>
+  </div>
+</div>
