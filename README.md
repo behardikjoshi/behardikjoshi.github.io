@@ -1,13 +1,13 @@
 # Hardik Joshi — Senior Full Stack Engineer & Angular Specialist Portfolio
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Angular](https://img.shields.io/badge/Angular-22-dd0031?logo=angular&logoColor=white)](https://angular.io/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Angular](https://img.shields.io/badge/Angular-17%2B-dd0031?logo=angular&logoColor=white)](https://angular.io/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.2%2B-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-20%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![GitHub Actions CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)](https://github.com/behardikjoshi/behardikjoshi.github.io/actions)
 [![Live Site](https://img.shields.io/badge/Live%20Site-behardikjoshi.github.io-00C7B7?logo=github)](https://behardikjoshi.github.io/)
 
-A modern, high-performance personal portfolio website built with **Angular 22 Standalone Components**, **TypeScript 5.5**, and **Vanilla CSS Design Tokens**. Engineered to showcase enterprise-grade full-stack projects, core technical competencies, career milestones, and engineering achievements with a dark luxury glassmorphic interface.
+A modern, high-performance personal portfolio website built with **Angular Standalone Components**, **TypeScript**, and **Vanilla CSS Design Tokens**. Engineered to showcase enterprise-grade full-stack projects, core technical competencies, career milestones, and engineering achievements with a dark luxury glassmorphic interface.
 
 ---
 
@@ -31,7 +31,7 @@ A modern, high-performance personal portfolio website built with **Angular 22 St
 
 This repository powers **[behardikjoshi.github.io](https://behardikjoshi.github.io/)**, the personal engineering showcase of **Hardik Joshi** (Senior Full Stack Engineer & Angular Specialist).
 
-The application is structured following Angular 22 best practices:
+The application is structured following modern Angular best practices:
 - **Standalone Component Model**: Modular, tree-shakeable architecture without `NgModule` boilerplate.
 - **Signal-Ready Reactivity**: Efficient state handling and UI event synchronization.
 - **Zero-Dependency Styling**: Bespoke modern glassmorphism design system using Vanilla CSS custom properties.
@@ -106,12 +106,12 @@ The application is structured following Angular 22 best practices:
 
 | Domain | Technologies |
 | :--- | :--- |
-| **Frontend Framework** | Angular 22.0.0 (Standalone Components) |
-| **Language & Typings** | TypeScript 5.5.2 (Strict Mode) |
+| **Frontend Framework** | Angular (Standalone Components & Signals) |
+| **Language & Typings** | TypeScript (Strict Mode) |
 | **Reactivity & State** | RxJS 7.8.0, Angular Signals |
 | **Styling & UI** | Vanilla CSS3, CSS Custom Properties, Glassmorphism, Flexbox/Grid |
 | **Typography & Icons** | Google Fonts (Plus Jakarta Sans, Inter, JetBrains Mono), FontAwesome 6 |
-| **Build Tooling** | Angular CLI 22, Node.js 20+ |
+| **Build Tooling** | Angular CLI, Node.js 20+ |
 | **CI/CD & Hosting** | GitHub Actions, GitHub Pages (CDN) |
 
 ---

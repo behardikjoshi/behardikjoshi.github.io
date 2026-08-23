@@ -67,7 +67,7 @@ export class PortfolioComponent {
       icon: 'fa-solid fa-briefcase'
     },
     {
-      value: 'Angular 22',
+      value: 'Angular 17+',
       label: 'Frontend Mastery',
       detail: 'Signals, Standalone, RxJS & NgRx',
       icon: 'fa-brands fa-angular'
@@ -98,7 +98,7 @@ export class PortfolioComponent {
         'Engineered responsive real-time data visualisations with interactive charts and exportable reporting.',
         'Implemented strict TypeScript type safety and reusable reactive UI component library.'
       ],
-      technologies: ['Angular 22', 'TypeScript', 'RxJS', 'Node.js', 'REST APIs', 'Chart.js', 'CSS Modules'],
+      technologies: ['Angular 17+', 'TypeScript', 'RxJS', 'Node.js', 'REST APIs', 'Chart.js', 'CSS Modules'],
       github: 'https://github.com/behardikjoshi',
       icon: 'fa-solid fa-chart-line'
     },
@@ -128,7 +128,7 @@ export class PortfolioComponent {
         'Integrated multi-timeframe candlestick visualisations with exportable technical indicators.',
         'Implemented resilient reconnection backoff algorithms and client-side data caching strategies.'
       ],
-      technologies: ['Angular 22', 'TypeScript', 'RxJS', 'WebSockets', 'Chart.js / D3', 'Node.js', 'TailwindCSS'],
+      technologies: ['Angular 17+', 'TypeScript', 'RxJS', 'WebSockets', 'Chart.js / D3', 'Node.js', 'TailwindCSS'],
       github: 'https://github.com/behardikjoshi',
       icon: 'fa-solid fa-arrow-trend-up'
     },
@@ -155,7 +155,7 @@ export class PortfolioComponent {
       icon: 'fa-solid fa-code',
       description: 'Crafting responsive, high-performance web applications with modern Angular ecosystems.',
       skills: [
-        { name: 'Angular (v14 - v22)', level: 'Expert', core: true },
+        { name: 'Angular (v14 - v17+)', level: 'Expert', core: true },
         { name: 'TypeScript', level: 'Expert', core: true },
         { name: 'RxJS & Signals', level: 'Advanced', core: true },
         { name: 'NgRx / State Management', level: 'Advanced', core: true },
