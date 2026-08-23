@@ -7,6 +7,31 @@
   overflow-x: hidden;
 }
 
+.back-to-portfolio {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.85);
+  color: #c0392b;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: 'Arvo', serif;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+}
+
+.back-to-portfolio:hover {
+  background: #c0392b;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(192, 57, 43, 0.3);
+}
+
 /* Decorations */
 .top-right-decoration,
 .top-left-decoration {

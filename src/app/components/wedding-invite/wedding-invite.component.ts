@@ -1,12 +1,13 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 declare var $: any; // jQuery
 
 @Component({
   selector: 'app-wedding-invite',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './wedding-invite.component.html',
   styleUrls: ['./wedding-invite.component.css']
 })

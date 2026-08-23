@@ -1,67 +1,283 @@
-<div class="portfolio-container">
-  <!-- Header/Hero Section -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>{{ name }}</h1>
-      <h2>{{ title }}</h2>
-      <p>Building modern web applications with Angular</p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">View My Work</a>
-        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+<div class="portfolio-page">
+  <!-- Top Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-brand">
+        <span class="brand-bracket">&lt;</span>Hardik Joshi <span class="brand-accent">/&gt;</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#contact" class="nav-btn-contact">Let's Connect</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="about" class="hero-section">
+    <div class="hero-glow"></div>
+    <div class="hero-container">
+      <div class="hero-text-block">
+        <div class="status-badge">
+          <span class="status-pulse"></span>
+          <span>{{ status }}</span>
+        </div>
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text">{{ name }}</span>
+        </h1>
+        <h2 class="hero-subtitle">{{ role }}</h2>
+        <p class="hero-description">
+          Building resilient enterprise web applications, responsive frontend architectures with
+          <strong>Angular 22 &amp; TypeScript</strong>, and scalable <strong>Node.js</strong> backend systems.
+          Focused on sub-second performance, maintainable codebases, and measurable business impact.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#projects" class="btn btn-gradient">
+            <i class="fa-solid fa-code"></i> View Featured Projects
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fa-regular fa-envelope"></i> Contact Me
+          </a>
+          <button (click)="copyEmail()" class="btn btn-ghost" title="Copy Email">
+            <i class="fa-regular fa-copy"></i> Copy Email
+          </button>
+        </div>
+
+        <div class="hero-socials">
+          <a [href]="githubUrl" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a [href]="linkedinUrl" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a [href]="'mailto:' + contactEmail" class="social-icon" title="Direct Email">
+            <i class="fa-solid fa-at"></i>
+          </a>
+          <span class="location-tag">
+            <i class="fa-solid fa-location-dot"></i> {{ location }}
+          </span>
+        </div>
+      </div>
+
+      <div class="hero-visual-block">
+        <div class="avatar-card">
+          <div class="avatar-glow"></div>
+          <div class="avatar-frame">
+            <img src="assets/img/Hardik.jpeg" alt="Hardik Joshi - Full Stack Engineer" class="avatar-img" (error)="$any($event.target).style.display='none'">
+            <div class="avatar-fallback" *ngIf="false">HJ</div>
+          </div>
+          <!-- Floating highlight badges -->
+          <div class="floating-badge badge-top-right">
+            <i class="fa-brands fa-angular"></i> Angular 22
+          </div>
+          <div class="floating-badge badge-bottom-left">
+            <i class="fa-brands fa-node-js"></i> Node.js &amp; APIs
+          </div>
+          <div class="floating-badge badge-bottom-right">
+            <i class="fa-solid fa-bolt"></i> 5+ Yrs Exp
+          </div>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <div class="section-container">
-      <h2>Featured Projects</h2>
-      <div class="projects-grid">
-        <div *ngFor="let project of projects" class="project-card">
-          <div class="project-image" *ngIf="project.image" [style.backgroundImage]="'url(' + project.image + ')'"></div>
-          <div class="project-content">
-            <h3>{{ project.title }}</h3>
-            <p>{{ project.description }}</p>
-            <div class="technologies">
-              <span *ngFor="let tech of project.technologies" class="tech-tag">{{ tech }}</span>
+  <!-- Metrics Ribbon -->
+  <section class="metrics-section">
+    <div class="metrics-grid">
+      <div *ngFor="let metric of metrics" class="metric-card">
+        <div class="metric-icon-wrap">
+          <i [class]="metric.icon"></i>
+        </div>
+        <div class="metric-content">
+          <div class="metric-value">{{ metric.value }}</div>
+          <div class="metric-label">{{ metric.label }}</div>
+          <div class="metric-detail">{{ metric.detail }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Section -->
+  <section id="projects" class="section projects-section">
+    <div class="section-header">
+      <span class="section-tag">PORTFOLIO WORK</span>
+      <h2 class="section-title">Featured Engineering Projects</h2>
+      <p class="section-subtitle">Real-world full-stack architectures, enterprise systems, and creative applications.</p>
+    </div>
+
+    <div class="projects-grid">
+      <div *ngFor="let project of projects" class="project-card">
+        <div class="project-header">
+          <div class="project-icon-box">
+            <i [class]="project.icon"></i>
+          </div>
+          <span class="project-badge">{{ project.badge }}</span>
+        </div>
+
+        <h3 class="project-title">{{ project.title }}</h3>
+        <div class="project-tagline">{{ project.tagline }}</div>
+        <p class="project-desc">{{ project.description }}</p>
+
+        <div class="project-highlights">
+          <div class="highlight-title">Key Impact &amp; Architecture:</div>
+          <ul>
+            <li *ngFor="let item of project.highlights">{{ item }}</li>
+          </ul>
+        </div>
+
+        <div class="project-tech-tags">
+          <span *ngFor="let tech of project.technologies" class="tech-pill">{{ tech }}</span>
+        </div>
+
+        <div class="project-actions">
+          <a *ngIf="project.isInternalLink" [routerLink]="project.link" class="btn-project-link">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Live App
+          </a>
+          <a *ngIf="project.link && !project.isInternalLink" [href]="project.link" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+          </a>
+          <a *ngIf="project.github" [href]="project.github" target="_blank" rel="noopener noreferrer" class="btn-project-code">
+            <i class="fa-brands fa-github"></i> Repository
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Matrix Section -->
+  <section id="skills" class="section skills-section">
+    <div class="section-header">
+      <span class="section-tag">CORE COMPETENCIES</span>
+      <h2 class="section-title">Technical Expertise &amp; Tooling</h2>
+      <p class="section-subtitle">Deep proficiency across modern frontend, backend systems, databases, and DevOps.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div *ngFor="let category of skillCategories" class="skill-category-card">
+        <div class="skill-category-header">
+          <div class="category-icon">
+            <i [class]="category.icon"></i>
+          </div>
+          <div>
+            <h3 class="category-title">{{ category.title }}</h3>
+            <p class="category-desc">{{ category.description }}</p>
+          </div>
+        </div>
+
+        <div class="skills-list">
+          <div *ngFor="let skill of category.skills" class="skill-item" [class.core-skill]="skill.core">
+            <div class="skill-meta">
+              <span class="skill-name">
+                <i *ngIf="skill.core" class="fa-solid fa-star skill-star" title="Core Expertise"></i>
+                {{ skill.name }}
+              </span>
+              <span class="skill-level-badge">{{ skill.level }}</span>
             </div>
-            <a *ngIf="project.link" [href]="project.link" class="project-link">View Project →</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="skills">
-    <div class="section-container">
-      <h2>Skills</h2>
-      <div class="skills-grid">
-        <div *ngFor="let skillGroup of skills" class="skill-category">
-          <h3>{{ skillGroup.category }}</h3>
-          <ul>
-            <li *ngFor="let skill of skillGroup.items">{{ skill }}</li>
-          </ul>
+  <!-- Experience & Career Timeline -->
+  <section id="experience" class="section experience-section">
+    <div class="section-header">
+      <span class="section-tag">CAREER PATH</span>
+      <h2 class="section-title">Professional Experience</h2>
+      <p class="section-subtitle">Demonstrated history of building scalable solutions and delivering high-value software.</p>
+    </div>
+
+    <div class="timeline">
+      <div *ngFor="let exp of experience" class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <div>
+              <h3 class="timeline-role">{{ exp.role }}</h3>
+              <div class="timeline-company">
+                <i class="fa-regular fa-building"></i> {{ exp.company }} &bull; <i class="fa-solid fa-location-dot"></i> {{ exp.location }}
+              </div>
+            </div>
+            <span class="timeline-period">{{ exp.period }}</span>
+          </div>
+
+          <p class="timeline-desc">{{ exp.description }}</p>
+
+          <div class="timeline-achievements">
+            <ul>
+              <li *ngFor="let ach of exp.achievements">{{ ach }}</li>
+            </ul>
+          </div>
+
+          <div class="timeline-tags">
+            <span *ngFor="let tech of exp.technologies" class="timeline-tech-pill">{{ tech }}</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="section-container">
-      <h2>Get In Touch</h2>
-      <p>Feel free to reach out for collaboration or inquiries.</p>
-      <a [href]="'mailto:' + contactEmail" class="btn btn-primary">Send Email</a>
-      <div class="social-links">
-        <a href="https://github.com/behardikjoshi" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://linkedin.com/in/behardikjoshi" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  <!-- High-Conversion Recruiter Contact Section -->
+  <section id="contact" class="section contact-section">
+    <div class="contact-card">
+      <div class="contact-glow"></div>
+      <div class="contact-content">
+        <span class="contact-badge">GET IN TOUCH</span>
+        <h2 class="contact-title">Let's Build Something Exceptional Together</h2>
+        <p class="contact-subtitle">
+          I am actively seeking <strong>Senior Full Stack Engineer</strong> and <strong>Angular Specialist</strong> roles.
+          Whether you have an open position, an exciting project, or want to connect — my inbox is open!
+        </p>
+
+        <div class="contact-details-box">
+          <div class="email-display">
+            <i class="fa-regular fa-envelope email-icon"></i>
+            <span class="email-text">{{ contactEmail }}</span>
+            <button (click)="copyEmail()" class="btn-copy" title="Copy Email Address">
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+
+          <div class="contact-actions">
+            <a [href]="'mailto:' + contactEmail + '?subject=Opportunity Inquiry - Hardik Joshi Portfolio'" class="btn btn-gradient">
+              <i class="fa-solid fa-paper-plane"></i> Send Direct Email
+            </a>
+            <a [href]="linkedinUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+              <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
+            </a>
+            <a [href]="githubUrl" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+              <i class="fa-brands fa-github"></i> GitHub Profile
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2024 Hardik Joshi. All rights reserved.</p>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="brand-bracket">&lt;</span>Hardik Joshi <span class="brand-accent">/&gt;</span>
+      </div>
+      <p class="footer-note">
+        Designed &amp; Built with <strong>Angular 22 Standalone</strong> &bull; Hosted on GitHub Pages via Automated CI/CD
+      </p>
+      <div class="footer-links">
+        <a [href]="githubUrl" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a [href]="linkedinUrl" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="#about">Back to Top &uarr;</a>
+      </div>
+    </div>
   </footer>
+
+  <!-- Toast Notification for Email Copy -->
+  <div *ngIf="copiedToast()" class="toast-notification">
+    <i class="fa-solid fa-circle-check toast-icon"></i>
+    <span>Email copied to clipboard: <strong>{{ contactEmail }}</strong></span>
+  </div>
 </div>
+
