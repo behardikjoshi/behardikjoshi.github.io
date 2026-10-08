@@ -179,45 +179,66 @@ export class PortfolioComponent {
       role: 'Senior Software Engineer (Aug 2025–Present); Software Engineer (Oct 2022–Jul 2025)',
       company: 'Diebold Nixdorf',
       location: 'Mumbai, India',
-      description: 'Progressed from Software Engineer to Senior Software Engineer.',
+      description: 'Progressed from Software Engineer to Senior Software Engineer while building cloud-native microservices, API gateway integrations, and AI agent capabilities.',
       achievements: [
-        'Developed a RAG chatbot for Resource Manager on Azure Functions, with MCP tools invoking product microservices.',
-        'Integrated data analytics through MCP tools and built a C# OpenAPI-to-MCP server for API Gateway.',
-        'Upgraded from .NET 8 to .NET 10 and led migration of 30+ APIs from MuleSoft to KrakenD.',
-        'Worked with Azure AKS, Kafka, RabbitMQ, Jenkins, OAuth 2.0, and IdentityServer4.'
+        'Building an AI chatbot for the Resource Manager UI on Azure Functions using RAG over company documents for context-grounded answers.',
+        'Integrated an MCP server into the agent Function App so the AI agent calls product microservices and converts JSON responses into user-friendly answers.',
+        'Developing a data analytics integration that moves reporting-source data into an analytics database and exposes it through MCP tools for analytical queries.',
+        'Led the production application upgrade from .NET 8 to .NET 10: assessed API compatibility, resolved breaking changes, updated NuGet dependencies, and validated post-upgrade performance.',
+        'Developing new .NET 10 microservices and features using minimal APIs, runtime improvements, and performance enhancements.',
+        'Built an API Gateway MCP server with the C# MCP SDK by parsing OpenAPI specifications, allowing AI agents to discover and invoke APIs.',
+        'Built a local multi-agent orchestration system for VS Code workflows and incremental feature development.',
+        'Architected and deployed microservices on Azure Kubernetes Service; managed orchestration, autoscaling, health probes, and rolling deployments.',
+        'Integrated RabbitMQ and Kafka for event-driven microservices; designed consumer groups, dead-letter queues, and retry policies.',
+        'Built Jenkins CI/CD pipelines for automated build, test, and deployment across development, staging, and production.',
+        'Led migration of 30+ APIs from MuleSoft to KrakenD API Gateway, improving performance, reducing latency, and optimizing public API generation.',
+        'Implemented tenant- and user-based authentication with IdentityServer4 and OAuth 2.0 for multi-tenant enterprise applications.',
+        'Developed a .NET 8 Web API authentication layer with SQL Server and synchronized data with CouchDB for high-speed retrieval.',
+        'Built and maintained PAG Cloud and Edge proxy gateways for secure backend-to-backend API communication.',
+        'Developed GoLang APIs in a custom microservices framework for backend data processing pipelines.',
+        'Mentored junior developers, led knowledge-transfer sessions, and supported Agile sprint delivery across cross-functional teams.',
+        'Received a Certificate of Appreciation for delivering a project from scratch; earned above-expectation annual performance reviews.'
       ],
-      technologies: ['C#', '.NET 10 / .NET 8', 'Azure Functions', 'Azure AKS', 'KrakenD', 'MCP', 'Kafka', 'RabbitMQ', 'Jenkins']
+      technologies: ['.NET 10', '.NET 8', 'C#', 'ASP.NET Core', 'KrakenD', 'MCP Server', 'RAG', 'Azure Functions', 'OpenAPI', 'AKS', 'RabbitMQ', 'Kafka', 'Jenkins', 'OAuth 2.0', 'IdentityServer4', 'GoLang', 'Angular 19+', 'SQL Server', 'CouchDB', 'Docker', 'Azure DevOps']
     },
     {
       period: 'Sep 2021 — Oct 2022',
       role: 'Software Engineer',
       company: 'GEP Worldwide',
       location: 'Mumbai, India',
-      description: 'Developed ASP.NET Core APIs and web applications.',
+      description: 'Developed REST APIs and Angular applications for supply-chain domain operations.',
       achievements: [
-        'Worked with Angular 16+, SQL Server, MongoDB, and Camunda.',
-        'Used XUnit, Cypress, and Azure Pipelines.'
+        'Developed and maintained RESTful APIs with ASP.NET Core Web API for supply-chain backend operations.',
+        'Designed Angular 16+ UI components to improve user experience and application performance.',
+        'Optimized SQL Server stored procedures to improve database efficiency and query performance.',
+        'Used MongoDB for NoSQL data storage and Camunda for business-process workflow automation.',
+        'Automated unit tests with XUnit and UI tests with Cypress; deployed through Azure Pipelines.',
+        'Led API and database performance optimization to reduce response times and improve system efficiency.'
       ],
-      technologies: ['ASP.NET Core', 'Angular 16+', 'SQL Server', 'MongoDB', 'Camunda', 'XUnit', 'Cypress', 'Azure Pipelines']
+      technologies: ['ASP.NET Core 3.1', '.NET 6', 'Web API', 'Angular 16+', 'SQL Server', 'MongoDB', 'Azure Pipelines', 'XUnit', 'Cypress', 'Camunda']
     },
     {
       period: 'Jun 2019 — Sep 2021',
       role: 'Software Engineer',
       company: 'Zeus System Pvt. Ltd.',
       location: 'Mumbai, India',
-      description: 'Worked across web application development, databases, and data integration.',
+      description: 'Built full-stack e-learning applications and data solutions across .NET, Angular, Python, and SQL Server.',
       achievements: [
-        'Developed with ASP.NET Core, Angular, Python/Django, and SQL Server.',
-        'Reduced SQL query time by 25% and built a ClosedXML library.',
-        'Worked with Docker, Snowflake, SSIS, SSRS, and AWS.'
+        'Developed e-learning applications with ASP.NET Core Web API and Angular 11+.',
+        'Designed Python/Django REST APIs for high traffic with a focus on stability and performance.',
+        'Implemented SQL Server stored procedures and indexes, reducing query execution time by 25%.',
+        'Built a ClosedXML library in .NET Core for document automation and Excel data extraction.',
+        'Integrated HubSpot, Google Tag Manager, Google Analytics, and Hotjar for tracking and marketing automation.',
+        'Led data migration and warehousing with Snowflake, SSIS, and SSRS.',
+        'Deployed applications with Docker and gained AWS infrastructure exposure for deployment and optimization.'
       ],
-      technologies: ['ASP.NET Core', 'Angular', 'Python', 'Django', 'SQL Server', 'Docker', 'Snowflake', 'SSIS', 'SSRS', 'AWS']
+      technologies: ['ASP.NET Core 3.0+', 'ASP.NET Core 2.0+', 'Web API', 'Angular 11+', 'Python', 'Django', 'SQL Server', 'Docker', 'AWS', 'Snowflake', 'SSIS', 'SSRS', 'ClosedXML']
     }
   ];
 
   readonly education: CredentialItem[] = [
     {
-      title: 'BE Computer Engineering',
+      title: 'Bachelor of Engineering, Computer Engineering',
       detail: 'University of Mumbai · 2015–2019 · CGPA 8.86'
     }
   ];
@@ -225,7 +246,27 @@ export class PortfolioComponent {
   readonly certifications: CredentialItem[] = [
     {
       title: 'Microsoft Certified: Azure Fundamentals',
-      detail: 'AZ-900'
+      detail: 'AZ-900 · Microsoft · Oct 2026–Present · ID: 6B730B46C7EF1976'
+    },
+    {
+      title: 'Docker Essentials: A Developer Introduction',
+      detail: 'IBM · Jul 2020–Present'
+    },
+    {
+      title: 'Data Science Foundations – Level 1',
+      detail: 'IBM · Jun 2020–Present'
+    },
+    {
+      title: 'iOS Application Development with Swift 4',
+      detail: 'Cognitio (Apple Authorized Training) · Jul 2018–Present'
+    },
+    {
+      title: 'IBM Machine Learning Essentials – 2017',
+      detail: 'IBM · Jul 2018–Present'
+    },
+    {
+      title: 'Introduction to Modern Application Development',
+      detail: 'NPTEL · May 2017–Present · ID: NPTEL17CS0626540034AN'
     }
   ];
 
