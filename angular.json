@@ -37,6 +37,11 @@
                 "glob": "sitemap.xml",
                 "input": "src/seo",
                 "output": "/"
+              },
+              {
+                "glob": "googled4ff51a9163ef275.html",
+                "input": "src/seo",
+                "output": "/"
               }
             ],
             "styles": [
