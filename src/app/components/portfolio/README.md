@@ -22,20 +22,21 @@ The `PortfolioComponent` serves as the primary root landing page for the applica
 1. **Top Navigation Bar (`.navbar`)**:
    - Sticky frosted glass header with navigation jump links and quick contact CTA.
 2. **Hero Section (`.hero-section`)**:
-   - Availability badge (`🟢 Available for Full-Time Roles`).
-   - Title, subtitle, value proposition, action buttons, animated avatar with floating tech pills.
+   - Senior Software Engineer profile, .NET/Azure/API platform focus, contact links, and portrait.
 3. **Metrics Ribbon (`.metrics-section`)**:
-   - 4-card grid highlighting years of experience, Angular mastery, full-stack systems, and quality standards.
-4. **Featured Projects (`.projects-section`)**:
-   - Enterprise projects with architecture tags, bulleted impact points, technology tags, and repository links.
-5. **Technical Competencies (`.skills-section`)**:
-   - Categorized cards for Frontend, Backend/APIs, Database/Cloud, and DevOps/Practices.
+   - Resume-backed experience, API migration, and SQL query improvement metrics.
+4. **Selected Engineering Work (`.projects-section`)**:
+   - Professional work covering AI/RAG/MCP, API gateway migration, and SQL performance.
+5. **Technical Skills (`.skills-section`)**:
+   - Categorized resume skills without inferred proficiency ratings.
 6. **Career Timeline (`.experience-section`)**:
-   - Vertical milestone roadmap with role details, achievements, and tech stacks.
-7. **Recruiter Contact Section (`.contact-section`)**:
-   - High-conversion contact card with one-click email copy button and direct communication links.
-8. **Footer (`.footer`)**:
-   - Copyright, credits, and navigation links.
+   - Diebold Nixdorf, GEP Worldwide, and Zeus System roles, dates, responsibilities, and technologies.
+7. **Education & Credentials (`.credentials-section`)**:
+   - Education, Azure Fundamentals certification, and publications.
+8. **Contact Section (`.contact-section`)**:
+   - Email, phone, LinkedIn, and GitHub contact links.
+9. **Footer (`.footer`)**:
+   - Portfolio identity and navigation links.
 
 ---
 
@@ -51,9 +52,7 @@ Edit `projects` array in `portfolio.component.ts`:
   tagline: string;
   description: string;
   highlights: string[];
-  technologies: string[];
-  github?: string;
-  link?: string;
+   technologies: string[];
   icon: string;
 }
 ```
@@ -65,7 +64,7 @@ Edit `skillCategories` array in `portfolio.component.ts`:
   title: string;
   icon: string;
   description: string;
-  skills: { name: string; level: string; core?: boolean }[];
+   skills: string[];
 }
 ```
 
@@ -82,3 +81,14 @@ Edit `experience` array in `portfolio.component.ts`:
   technologies: string[];
 }
 ```
+
+### Updating Education, Certifications, or Publications
+Edit the matching typed array (`education`, `certifications`, or `publications`) in `portfolio.component.ts`:
+```typescript
+{
+   title: string;
+   detail: string;
+}
+```
+
+Keep dates, employers, outcomes, and qualifications aligned with verified resume details. Do not add unsupported metrics or skill ratings.

@@ -779,6 +779,37 @@
   gap: 6px;
 }
 
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.credential-card {
+  padding: 22px;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+}
+
+.credential-kind {
+  color: var(--accent-cyan);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.credential-card h3 {
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+.credential-card p {
+  margin-top: 6px;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
 .skill-star {
   font-size: 0.75rem;
   color: #fbbf24;

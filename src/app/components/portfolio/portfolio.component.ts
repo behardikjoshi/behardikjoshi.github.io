@@ -1,6 +1,5 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 export interface Project {
   id: number;
@@ -10,9 +9,6 @@ export interface Project {
   description: string;
   highlights: string[];
   technologies: string[];
-  link?: string;
-  isInternalLink?: boolean;
-  github?: string;
   icon: string;
 }
 
@@ -20,7 +16,7 @@ export interface SkillCategory {
   title: string;
   icon: string;
   description: string;
-  skills: { name: string; level: string; core?: boolean }[];
+  skills: string[];
 }
 
 export interface Metric {
@@ -40,196 +36,207 @@ export interface ExperienceItem {
   technologies: string[];
 }
 
+export interface CredentialItem {
+  title: string;
+  detail: string;
+}
+
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.css']
 })
 export class PortfolioComponent {
+  readonly currentYear = new Date().getFullYear();
   readonly name = 'Hardik Joshi';
-  readonly role = 'Senior Full Stack Engineer & Angular Specialist';
-  readonly location = 'Mumbai, India (Open to Remote & Relocation)';
-  readonly status = 'Available for Full-Time Roles';
+  readonly role = 'Senior Software Engineer';
+  readonly location = 'Mumbai, India';
   readonly contactEmail = 'hvj.joshi06@gmail.com';
+  readonly contactPhone = '+91 9970589755';
+  readonly resumeRequestMessage = 'Hi, I came across your profile on GitHub. Could you please share your updated resume?';
+  readonly resumeEmailUrl = `mailto:${this.contactEmail}?subject=${encodeURIComponent('Request for updated resume')}&body=${encodeURIComponent(this.resumeRequestMessage)}`;
+  readonly resumeWhatsAppUrl = `https://wa.me/919970589755?text=${encodeURIComponent(this.resumeRequestMessage)}`;
   readonly githubUrl = 'https://github.com/behardikjoshi';
-  readonly linkedinUrl = 'https://linkedin.com/in/behardikjoshi';
+  readonly linkedinUrl = 'https://linkedin.com/in/hardik-joshi-a71645136';
 
   copiedToast = signal<boolean>(false);
   activeSkillTab = signal<string>('all');
 
   readonly metrics: Metric[] = [
     {
-      value: '5+ Years',
+      value: '7+ Years',
       label: 'Professional Experience',
-      detail: 'Enterprise Web Applications',
+      detail: 'Software engineering',
       icon: 'fa-solid fa-briefcase'
     },
     {
-      value: 'Angular 17+',
-      label: 'Frontend Mastery',
-      detail: 'Signals, Standalone, RxJS & NgRx',
-      icon: 'fa-brands fa-angular'
+      value: '30+ APIs',
+      label: 'Migration to KrakenD',
+      detail: 'From MuleSoft API Gateway',
+      icon: 'fa-solid fa-right-left'
     },
     {
-      value: 'Full-Stack',
-      label: 'System Architecture',
-      detail: 'Node.js, Express, REST & SQL',
-      icon: 'fa-solid fa-layer-group'
-    },
-    {
-      value: '100%',
-      label: 'Commitment & Quality',
-      detail: 'Clean Code & High Performance',
-      icon: 'fa-solid fa-shield-halved'
+      value: '25%',
+      label: 'SQL Query Time Reduction',
+      detail: 'At Zeus System Pvt. Ltd.',
+      icon: 'fa-solid fa-database'
     }
   ];
 
   readonly projects: Project[] = [
     {
       id: 1,
-      title: 'Enterprise Analytics & Operations Platform',
-      badge: 'Architecture',
-      tagline: 'High-Performance Modular Angular Dashboard Suite',
-      description: 'Architected a scalable real-time analytics web platform built with Angular standalone components, advanced RxJS state pipelines, and lazy-loaded microfrontends.',
+      title: 'Resource Manager RAG Chatbot',
+      badge: 'AI & MCP',
+      tagline: 'Retrieval-augmented assistant on Azure Functions',
+      description: 'Building a RAG chatbot for Resource Manager that answers from company documents and uses MCP tools to access product microservices.',
       highlights: [
-        'Reduced initial bundle load time by 42% using standalone components and route-level code splitting.',
-        'Engineered responsive real-time data visualisations with interactive charts and exportable reporting.',
-        'Implemented strict TypeScript type safety and reusable reactive UI component library.'
+        'Running the chatbot in an Azure Functions app.',
+        'Using MCP tools to call product microservices and turn JSON responses into user-friendly answers.'
       ],
-      technologies: ['Angular 17+', 'TypeScript', 'RxJS', 'Node.js', 'REST APIs', 'Chart.js', 'CSS Modules'],
-      github: 'https://github.com/behardikjoshi',
-      icon: 'fa-solid fa-chart-line'
+      technologies: ['RAG', 'AI Agents', 'MCP', 'Azure Functions', 'Microservices'],
+      icon: 'fa-solid fa-robot'
     },
     {
       id: 2,
-      title: 'Cloud Inventory & Order Management Suite',
-      badge: 'Full Stack',
-      tagline: 'End-to-End Enterprise Resource & Order Processing System',
-      description: 'Engineered a resilient full-stack transaction and order processing application with secure role-based JWT authentication, automated invoice generation, and audit logging.',
+      title: 'Data Analytics MCP Integration',
+      badge: 'Data & MCP',
+      tagline: 'Analytics integration exposed through MCP tools',
+      description: 'Developing a data analytics integration that moves reporting data into an analytics database and exposes it to AI workflows.',
       highlights: [
-        'Built secure RESTful microservice endpoints with Node.js/Express handling high concurrency.',
-        'Structured transactional database schemas with optimized query performance and indexing.',
-        'Designed intuitive administrative panels with live order status trackers and toast notifications.'
+        'Building MCP tools as a data access layer for analytical user queries.',
+        'Connecting reporting-source data with an analytics database.'
       ],
-      technologies: ['Angular', 'Node.js', 'Express', 'SQL Server / MongoDB', 'JWT Auth', 'Docker'],
-      github: 'https://github.com/behardikjoshi',
-      icon: 'fa-solid fa-boxes-stacked'
+      technologies: ['MCP', 'Data Analytics', 'Microservices'],
+      icon: 'fa-solid fa-chart-column'
     },
     {
       id: 3,
-      title: 'FinFlow - Real-Time Market Analytics & Trading Engine',
-      badge: 'Real-Time WebSockets',
-      tagline: 'High-Throughput Financial Telemetry & Interactive Charting Platform',
-      description: 'Engineered a real-time market data streaming platform featuring sub-100ms WebSocket price feeds, interactive depth charts, and automated limit order simulators.',
+      title: 'API Gateway Modernization',
+      badge: 'API Architecture',
+      tagline: 'MuleSoft API migration to KrakenD',
+      description: 'Led the migration of 30+ APIs from MuleSoft to KrakenD API Gateway, supporting API security with OAuth 2.0 and IdentityServer4.',
       highlights: [
-        'Built reactive state pipelines with RxJS Subject buffers and NgRx for ultra-smooth UI chart updates.',
-        'Integrated multi-timeframe candlestick visualisations with exportable technical indicators.',
-        'Implemented resilient reconnection backoff algorithms and client-side data caching strategies.'
+        'Led migration of more than 30 APIs to KrakenD.',
+        'Used OAuth 2.0 and IdentityServer4 for authorization and identity.'
       ],
-      technologies: ['Angular 17+', 'TypeScript', 'RxJS', 'WebSockets', 'Chart.js / D3', 'Node.js', 'TailwindCSS'],
-      github: 'https://github.com/behardikjoshi',
-      icon: 'fa-solid fa-arrow-trend-up'
+      technologies: ['KrakenD', 'MuleSoft', 'OAuth 2.0', 'IdentityServer4'],
+      icon: 'fa-solid fa-route'
     },
     {
       id: 4,
-      title: 'DevSync - Agile Task & Sprint Orchestrator',
-      badge: 'Real-time UI',
-      tagline: 'Collaborative Kanban & Workflow Management Web App',
-      description: 'Developed an interactive productivity tool enabling development teams to manage sprints, drag-and-drop user stories, and track velocity metrics with optimistic UI updates.',
+      title: 'SQL Performance & ClosedXML Library',
+      badge: 'Engineering',
+      tagline: 'Database optimization and spreadsheet tooling',
+      description: 'At Zeus System Pvt. Ltd., improved SQL query time and built a library using ClosedXML.',
       highlights: [
-        'Leveraged Angular CDK drag-and-drop modules for ultra-smooth board interactions.',
-        'Architected state synchronization ensuring zero-latency updates across active team views.',
-        'Provided comprehensive search, multi-tag filtering, and sprint analytics.'
+        'Reduced SQL query time by 25%.',
+        'Built a ClosedXML library.'
       ],
-      technologies: ['Angular', 'TypeScript', 'Angular CDK', 'RxJS', 'TailwindCSS', 'Firebase'],
-      github: 'https://github.com/behardikjoshi',
-      icon: 'fa-solid fa-list-check'
+      technologies: ['SQL Server', 'ClosedXML'],
+      icon: 'fa-solid fa-gauge-high'
     }
   ];
 
   readonly skillCategories: SkillCategory[] = [
     {
-      title: 'Frontend Engineering',
-      icon: 'fa-solid fa-code',
-      description: 'Crafting responsive, high-performance web applications with modern Angular ecosystems.',
-      skills: [
-        { name: 'Angular (v14 - v17+)', level: 'Expert', core: true },
-        { name: 'TypeScript', level: 'Expert', core: true },
-        { name: 'RxJS & Signals', level: 'Advanced', core: true },
-        { name: 'NgRx / State Management', level: 'Advanced', core: true },
-        { name: 'HTML5 & Modern CSS3 / SCSS', level: 'Expert', core: true },
-        { name: 'JavaScript (ES6+)', level: 'Expert', core: true },
-        { name: 'Responsive UI / Flexbox & Grid', level: 'Expert' },
-        { name: 'Microfrontends & Webpack/Vite', level: 'Intermediate' }
-      ]
-    },
-    {
       title: 'Backend & API Architecture',
       icon: 'fa-solid fa-server',
-      description: 'Building robust, scalable server-side systems and resilient API interfaces.',
-      skills: [
-        { name: 'Node.js & Express', level: 'Advanced', core: true },
-        { name: 'RESTful API Design', level: 'Expert', core: true },
-        { name: 'JWT & OAuth Authentication', level: 'Advanced', core: true },
-        { name: 'C# / .NET Fundamentals', level: 'Proficient' },
-        { name: 'API Security & Rate Limiting', level: 'Advanced' },
-        { name: 'Microservices Concepts', level: 'Intermediate' }
-      ]
+      description: 'Backend development, API gateways, identity, and distributed services.',
+      skills: ['C#', '.NET 10 / .NET 8', 'ASP.NET Core', 'GoLang', 'Microservices', 'REST APIs', 'KrakenD API Gateway', 'OpenAPI Specification', 'OpenAPI-to-MCP', 'OAuth 2.0', 'IdentityServer4', 'JWT']
     },
     {
-      title: 'Database & Cloud Infrastructure',
+      title: 'AI & Messaging',
+      icon: 'fa-solid fa-diagram-project',
+      description: 'AI integrations and asynchronous service communication.',
+      skills: ['AI Agents & Tool Calling', 'RAG', 'MCP Server (C# SDK)', 'Multi-Agent Orchestration', 'Local AI Agents', 'Kafka', 'RabbitMQ']
+    },
+    {
+      title: 'Cloud & DevOps',
+      icon: 'fa-solid fa-cloud',
+      description: 'Cloud platforms, orchestration, and delivery pipelines.',
+      skills: ['Azure AKS', 'Azure Functions', 'Jenkins Pipelines', 'Azure DevOps Pipelines', 'Docker', 'AWS (exposure)', 'Git']
+    },
+    {
+      title: 'Application & Data',
       icon: 'fa-solid fa-database',
-      description: 'Designing data schemas, query optimization, and deploying modern cloud workflows.',
-      skills: [
-        { name: 'SQL Server / T-SQL', level: 'Advanced', core: true },
-        { name: 'MongoDB / NoSQL', level: 'Proficient', core: true },
-        { name: 'GitHub Actions / CI/CD', level: 'Advanced', core: true },
-        { name: 'Docker & Containerization', level: 'Intermediate' },
-        { name: 'GitHub Pages & Cloud Hosting', level: 'Advanced' }
-      ]
+      description: 'Web applications, databases, and data integration tooling.',
+      skills: ['Angular 16+', 'TypeScript', 'Python', 'Django', 'SQL Server / T-SQL', 'CouchDB', 'MongoDB', 'MySQL', 'Snowflake', 'SSIS', 'SSRS', 'Camunda', 'ClosedXML']
     },
     {
-      title: 'DevOps, Tooling & Practices',
-      icon: 'fa-solid fa-screwdriver-wrench',
-      description: 'Driving engineering excellence, automated testing, and agile collaboration.',
-      skills: [
-        { name: 'Git & GitHub Collaboration', level: 'Expert', core: true },
-        { name: 'Jasmine / Karma Unit Testing', level: 'Advanced', core: true },
-        { name: 'Performance Profiling & SEO', level: 'Advanced' },
-        { name: 'Agile / Scrum Methodologies', level: 'Advanced' },
-        { name: 'Code Review & Mentorship', level: 'Advanced' }
-      ]
+      title: 'Testing',
+      icon: 'fa-solid fa-vial',
+      description: 'Automated testing across application and delivery workflows.',
+      skills: ['XUnit', 'Cypress']
     }
   ];
 
   readonly experience: ExperienceItem[] = [
     {
-      period: '2021 — PRESENT',
-      role: 'Senior Full Stack Software Engineer',
-      company: 'Enterprise Software Solutions',
+      period: 'Oct 2022 — Present',
+      role: 'Senior Software Engineer (Aug 2025–Present); Software Engineer (Oct 2022–Jul 2025)',
+      company: 'Diebold Nixdorf',
       location: 'Mumbai, India',
-      description: 'Lead frontend architect and full-stack contributor driving enterprise digital transformation, modern web application architecture, and performance optimization.',
+      description: 'Progressed from Software Engineer to Senior Software Engineer.',
       achievements: [
-        'Spearheaded Angular architecture modernization across key enterprise modules, improving responsiveness by 35%.',
-        'Implemented robust CI/CD deployment pipelines using GitHub Actions, reducing deployment cycle times from hours to minutes.',
-        'Mentored junior engineers on Angular best practices, reactive patterns with RxJS, and clean architecture standards.'
+        'Developed a RAG chatbot for Resource Manager on Azure Functions, with MCP tools invoking product microservices.',
+        'Integrated data analytics through MCP tools and built a C# OpenAPI-to-MCP server for API Gateway.',
+        'Upgraded from .NET 8 to .NET 10 and led migration of 30+ APIs from MuleSoft to KrakenD.',
+        'Worked with Azure AKS, Kafka, RabbitMQ, Jenkins, OAuth 2.0, and IdentityServer4.'
       ],
-      technologies: ['Angular', 'TypeScript', 'Node.js', 'RxJS', 'SQL Server', 'GitHub Actions']
+      technologies: ['C#', '.NET 10 / .NET 8', 'Azure Functions', 'Azure AKS', 'KrakenD', 'MCP', 'Kafka', 'RabbitMQ', 'Jenkins']
     },
     {
-      period: '2019 — 2021',
-      role: 'Software Developer',
-      company: 'Technology Consulting Services',
+      period: 'Sep 2021 — Oct 2022',
+      role: 'Software Engineer',
+      company: 'GEP Worldwide',
       location: 'Mumbai, India',
-      description: 'Developed scalable client-facing web applications, REST APIs, and database integrations for financial and commerce clients.',
+      description: 'Developed ASP.NET Core APIs and web applications.',
       achievements: [
-        'Built dynamic single-page applications with reusable Angular components and seamless backend integrations.',
-        'Optimized complex SQL queries and database schemas, resulting in 40% faster report generation.',
-        'Collaborated with cross-functional product and UX teams to deliver pixel-perfect responsive layouts.'
+        'Worked with Angular 16+, SQL Server, MongoDB, and Camunda.',
+        'Used XUnit, Cypress, and Azure Pipelines.'
       ],
-      technologies: ['Angular', 'JavaScript', 'TypeScript', 'Node.js', 'Express', 'SQL', 'HTML5/CSS3']
+      technologies: ['ASP.NET Core', 'Angular 16+', 'SQL Server', 'MongoDB', 'Camunda', 'XUnit', 'Cypress', 'Azure Pipelines']
+    },
+    {
+      period: 'Jun 2019 — Sep 2021',
+      role: 'Software Engineer',
+      company: 'Zeus System Pvt. Ltd.',
+      location: 'Mumbai, India',
+      description: 'Worked across web application development, databases, and data integration.',
+      achievements: [
+        'Developed with ASP.NET Core, Angular, Python/Django, and SQL Server.',
+        'Reduced SQL query time by 25% and built a ClosedXML library.',
+        'Worked with Docker, Snowflake, SSIS, SSRS, and AWS.'
+      ],
+      technologies: ['ASP.NET Core', 'Angular', 'Python', 'Django', 'SQL Server', 'Docker', 'Snowflake', 'SSIS', 'SSRS', 'AWS']
+    }
+  ];
+
+  readonly education: CredentialItem[] = [
+    {
+      title: 'BE Computer Engineering',
+      detail: 'University of Mumbai · 2015–2019 · CGPA 8.86'
+    }
+  ];
+
+  readonly certifications: CredentialItem[] = [
+    {
+      title: 'Microsoft Certified: Azure Fundamentals',
+      detail: 'AZ-900'
+    }
+  ];
+
+  readonly publications: CredentialItem[] = [
+    {
+      title: 'Crop Yield Prediction Using Supervised Machine Learning Algorithm',
+      detail: 'IOSR Journal of Engineering · 2019'
+    },
+    {
+      title: 'Application Software Using IoT Sensors for Vehicle Parking',
+      detail: 'IOSR ICIATE · 2018'
     }
   ];
 

@@ -10,6 +10,7 @@
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#experience" class="nav-link">Experience</a>
+        <a href="#credentials" class="nav-link">Credentials</a>
         <a href="#contact" class="nav-btn-contact">Let's Connect</a>
       </div>
     </div>
@@ -20,26 +21,25 @@
     <div class="hero-glow"></div>
     <div class="hero-container">
       <div class="hero-text-block">
-        <div class="status-badge">
-          <span class="status-pulse"></span>
-          <span>{{ status }}</span>
-        </div>
         <h1 class="hero-title">
           Hi, I'm <span class="gradient-text">{{ name }}</span>
         </h1>
         <h2 class="hero-subtitle">{{ role }}</h2>
         <p class="hero-description">
-          Building resilient enterprise web applications, responsive frontend architectures with
-          <strong>Angular &amp; TypeScript</strong>, and scalable <strong>Node.js</strong> backend systems.
-          Focused on sub-second performance, maintainable codebases, and measurable business impact.
+          Software engineer with <strong>7+ years of experience</strong> building with .NET and C#,
+          Azure AKS and Azure Functions, KrakenD API Gateway, and microservices. Recent work includes
+          <strong>AI agents, RAG, and MCP</strong>, with OAuth 2.0, IdentityServer4, Kafka, and RabbitMQ.
         </p>
 
         <div class="hero-ctas">
           <a href="#projects" class="btn btn-gradient">
-            <i class="fa-solid fa-code"></i> View Featured Projects
+            <i class="fa-solid fa-code"></i> View Selected Work
           </a>
           <a href="#contact" class="btn btn-outline">
             <i class="fa-regular fa-envelope"></i> Contact Me
+          </a>
+          <a href="#contact" class="btn btn-ghost">
+            <i class="fa-solid fa-file-arrow-down"></i> Request Updated Resume
           </a>
           <button (click)="copyEmail()" class="btn btn-ghost" title="Copy Email">
             <i class="fa-regular fa-copy"></i> Copy Email
@@ -56,6 +56,9 @@
           <a [href]="'mailto:' + contactEmail" class="social-icon" title="Direct Email">
             <i class="fa-solid fa-at"></i>
           </a>
+          <a [href]="'tel:' + contactPhone" class="social-icon" title="Call Hardik">
+            <i class="fa-solid fa-phone"></i>
+          </a>
           <span class="location-tag">
             <i class="fa-solid fa-location-dot"></i> {{ location }}
           </span>
@@ -66,18 +69,18 @@
         <div class="avatar-card">
           <div class="avatar-glow"></div>
           <div class="avatar-frame">
-            <img src="assets/img/Hardik.jpeg" alt="Hardik Joshi - Full Stack Engineer" class="avatar-img" (error)="$any($event.target).style.display='none'">
+            <img src="assets/img/HardikPic.jpeg" alt="Hardik Joshi - Senior Software Engineer" class="avatar-img" (error)="$any($event.target).style.display='none'">
             <div class="avatar-fallback" *ngIf="false">HJ</div>
           </div>
           <!-- Floating highlight badges -->
           <div class="floating-badge badge-top-right">
-            <i class="fa-brands fa-angular"></i> Angular Expert
+            <i class="fa-solid fa-code"></i> .NET 10 / 8
           </div>
           <div class="floating-badge badge-bottom-left">
-            <i class="fa-brands fa-node-js"></i> Node.js &amp; APIs
+            <i class="fa-solid fa-cloud"></i> Azure AKS &amp; Functions
           </div>
           <div class="floating-badge badge-bottom-right">
-            <i class="fa-solid fa-bolt"></i> 5+ Yrs Exp
+            <i class="fa-solid fa-brain"></i> AI · RAG · MCP
           </div>
         </div>
       </div>
@@ -100,12 +103,12 @@
     </div>
   </section>
 
-  <!-- Featured Projects Section -->
+  <!-- Selected Engineering Work -->
   <section id="projects" class="section projects-section">
     <div class="section-header">
-      <span class="section-tag">PORTFOLIO WORK</span>
-      <h2 class="section-title">Featured Engineering Projects</h2>
-      <p class="section-subtitle">Real-world full-stack architectures, enterprise systems, and creative applications.</p>
+      <span class="section-tag">SELECTED WORK</span>
+      <h2 class="section-title">Engineering Work</h2>
+      <p class="section-subtitle">Selected AI, API gateway, and data engineering work from professional experience.</p>
     </div>
 
     <div class="projects-grid">
@@ -132,17 +135,6 @@
           <span *ngFor="let tech of project.technologies" class="tech-pill">{{ tech }}</span>
         </div>
 
-        <div class="project-actions">
-          <a *ngIf="project.isInternalLink" [routerLink]="project.link" class="btn-project-link">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Live App
-          </a>
-          <a *ngIf="project.link && !project.isInternalLink" [href]="project.link" target="_blank" rel="noopener noreferrer" class="btn-project-link">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
-          </a>
-          <a *ngIf="project.github" [href]="project.github" target="_blank" rel="noopener noreferrer" class="btn-project-code">
-            <i class="fa-brands fa-github"></i> Repository
-          </a>
-        </div>
       </div>
     </div>
   </section>
@@ -151,8 +143,8 @@
   <section id="skills" class="section skills-section">
     <div class="section-header">
       <span class="section-tag">CORE COMPETENCIES</span>
-      <h2 class="section-title">Technical Expertise &amp; Tooling</h2>
-      <p class="section-subtitle">Deep proficiency across modern frontend, backend systems, databases, and DevOps.</p>
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-subtitle">Technologies and tools used across software engineering roles.</p>
     </div>
 
     <div class="skills-grid">
@@ -168,14 +160,8 @@
         </div>
 
         <div class="skills-list">
-          <div *ngFor="let skill of category.skills" class="skill-item" [class.core-skill]="skill.core">
-            <div class="skill-meta">
-              <span class="skill-name">
-                <i *ngIf="skill.core" class="fa-solid fa-star skill-star" title="Core Expertise"></i>
-                {{ skill.name }}
-              </span>
-              <span class="skill-level-badge">{{ skill.level }}</span>
-            </div>
+          <div *ngFor="let skill of category.skills" class="skill-item">
+            <span class="skill-name">{{ skill }}</span>
           </div>
         </div>
       </div>
@@ -187,7 +173,7 @@
     <div class="section-header">
       <span class="section-tag">CAREER PATH</span>
       <h2 class="section-title">Professional Experience</h2>
-      <p class="section-subtitle">Demonstrated history of building scalable solutions and delivering high-value software.</p>
+      <p class="section-subtitle">Roles and selected responsibilities across software engineering teams.</p>
     </div>
 
     <div class="timeline">
@@ -220,6 +206,32 @@
     </div>
   </section>
 
+  <section id="credentials" class="section credentials-section">
+    <div class="section-header">
+      <span class="section-tag">EDUCATION &amp; PUBLICATIONS</span>
+      <h2 class="section-title">Education &amp; Credentials</h2>
+      <p class="section-subtitle">Academic background, certification, and published research.</p>
+    </div>
+
+    <div class="credentials-grid">
+      <article *ngFor="let item of education" class="credential-card">
+        <span class="credential-kind">Education</span>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.detail }}</p>
+      </article>
+      <article *ngFor="let item of certifications" class="credential-card">
+        <span class="credential-kind">Certification</span>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.detail }}</p>
+      </article>
+      <article *ngFor="let item of publications" class="credential-card">
+        <span class="credential-kind">Publication</span>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.detail }}</p>
+      </article>
+    </div>
+  </section>
+
   <!-- High-Conversion Recruiter Contact Section -->
   <section id="contact" class="section contact-section">
     <div class="contact-card">
@@ -227,10 +239,7 @@
       <div class="contact-content">
         <span class="contact-badge">GET IN TOUCH</span>
         <h2 class="contact-title">Let's Build Something Exceptional Together</h2>
-        <p class="contact-subtitle">
-          I am actively seeking <strong>Senior Full Stack Engineer</strong> and <strong>Angular Specialist</strong> roles.
-          Whether you have an open position, an exciting project, or want to connect — my inbox is open!
-        </p>
+        <p class="contact-subtitle">Request the latest resume by email or WhatsApp.</p>
 
         <div class="contact-details-box">
           <div class="email-display">
@@ -240,10 +249,17 @@
               <i class="fa-regular fa-copy"></i>
             </button>
           </div>
+          <div class="email-display">
+            <i class="fa-solid fa-phone email-icon"></i>
+            <a [href]="'tel:' + contactPhone" class="email-text">{{ contactPhone }}</a>
+          </div>
 
           <div class="contact-actions">
-            <a [href]="'mailto:' + contactEmail + '?subject=Opportunity Inquiry - Hardik Joshi Portfolio'" class="btn btn-gradient">
-              <i class="fa-solid fa-paper-plane"></i> Send Direct Email
+            <a [href]="resumeEmailUrl" class="btn btn-gradient">
+              <i class="fa-regular fa-envelope"></i> Request by Email
+            </a>
+            <a [href]="resumeWhatsAppUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+              <i class="fa-brands fa-whatsapp"></i> Request on WhatsApp
             </a>
             <a [href]="linkedinUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
               <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
@@ -264,7 +280,7 @@
         <span class="brand-bracket">&lt;</span>Hardik Joshi <span class="brand-accent">/&gt;</span>
       </div>
       <p class="footer-note">
-        Designed &amp; Built with <strong>Angular Standalone Architecture</strong> &bull; Hosted on GitHub Pages via Automated CI/CD
+        &copy; {{ currentYear }} Hardik Joshi. All rights reserved.
       </p>
       <div class="footer-links">
         <a [href]="githubUrl" target="_blank" rel="noopener noreferrer">GitHub</a>
