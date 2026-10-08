@@ -27,7 +27,17 @@
             "baseHref": "/",
             "assets": [
               "src/favicon.png",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "robots.txt",
+                "input": "src/seo",
+                "output": "/"
+              },
+              {
+                "glob": "sitemap.xml",
+                "input": "src/seo",
+                "output": "/"
+              }
             ],
             "styles": [
               "src/styles.css"
