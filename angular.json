@@ -27,8 +27,7 @@
             "baseHref": "/",
             "assets": [
               "src/favicon.png",
-              "src/assets",
-              ".nojekyll"
+              "src/assets"
             ],
             "styles": [
               "src/styles.css"
